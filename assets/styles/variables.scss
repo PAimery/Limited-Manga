@@ -1,2 +1,17 @@
-$light: #22b83b;
-$secondary: #DC3453;
+$primary: #DC3453;
+$secondary: black;
+$light: #fafafa;
+$dark: rgb(43, 43, 43);
+
+@font-face {
+    font-family: 'BNSuper';
+    src: url('../fonts/BNSuper-Sized.otf') format('opentype');
+}
+
+h1 {
+    font-family: 'BNSuper';
+}
+
+.bnSuper {
+    font-family: 'BNSuper';
+}

@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg bg-light border border-black border-5 border-start-0 border-top-0 border-end-0 p-0 ">
+	<div class="container">
+		<button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<a class="navbar-brand mx-3" href="{{ path('home_index')}}">
+			<img class="logo-nav img-fluid d-none d-md-block" src=" {{ asset('build/images/logoTorii.png') }} " width="10%" alt="Logo Limited Manga">
+		</a>
+		<ul class="navbar-nav order-md-2 mt-2 ">
+			<li class="dropdown ">
+				<a class="nav-link text-black dropdown-toggle text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					{% include 'icons/profil.svg' %}
+				</a>
+				<ul class="bg-light rounded-4 dropdown-menu">
+					<li>
+						<a class="bnSuper dropdown-item text-decoration-none fs-5 text-dark" href="#">Connexion</a>
+					</li>
+					<li>
+						<a class="bnSuper dropdown-item text-decoration-none fs-5 text-dark" href="#">S'inscrire</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+			<ul class="navbar-nav mt-2">
+				<li class="nav-item">
+					<a class="bnSuper nav-link mx-3 fs-6 text-black" href="{{ path('universe_index') }}">actualités</a>
+				</li>
+				<li class="nav-item">
+					<a class="bnSuper nav-link mx-3 fs-6 text-black" href="{{ path('universe_index') }}">Univers</a>
+				</li>
+				<li class="nav-item">
+					<a class="bnSuper nav-link mx-3 fs-6 text-black" href="#">Twitter</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>

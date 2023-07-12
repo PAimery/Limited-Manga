@@ -3,6 +3,13 @@
 {% block title %}Accueil
 {% endblock %}
 
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('home') }}
+{% endblock %}
+
 {% block body %}
-	<h1 class="text-light fs-2 text-uppercase text-center fw-bold m-5">Page d'accueil</h1>
+	<header class="d-flex justify-content-center align-items-center">
+		<h1 class="text-primary">Limited Manga</h1>
+	</header>
 {% endblock %}
