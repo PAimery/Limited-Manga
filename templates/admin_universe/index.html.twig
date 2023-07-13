@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Universe index
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('admin_universe') }}
+{% endblock %}
+
+{% block body %}
+	<main class="container d-flex my-5">
+		<div class="col-2 d-flex flex-column align-items-end">
+			<h1 class="title text-dark p-0 m-0">Univers</h1>
+			<a class="bg-dark fs-1 fw-bolder px-4 m-3 rounded-2 text-center text-light text-decoration-none" href="{{ path('admin_universe_new') }}">
+				+
+			</a>
+		</div>
+		<div class="col-9">
+			<table class="table table-striped border border-dark ">
+				<thead>
+					<tr>
+						<th class="h1">Title</th>
+						<th class="h1">Image</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for universe in universes %}
+						<tr>
+							<td class="universes text-uppercase fw-bolder px-4 pt-3">{{ universe.Title }}</td>
+							<td>
+								<img src="{{ universe.image ?? asset('build/images/Universes/onepiece.png') }}" class="card-image w-50" alt=" ...">
+							</td>
+							<td class="bg-dark pt-3">
+								<a class="text-light mx-3" href="{{ path('admin_universe_show', {'id': universe.id}) }}">
+									{% include 'icons/view.svg' %}</a>
+								<a class="text-light p-3 rounded-2" href="{{ path('admin_universe_edit', {'id': universe.id}) }}">
+									{% include 'icons/edit.svg' %}</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</main>
+{% endblock %}
