@@ -1,0 +1,18 @@
+@import "variables";
+
+body {
+    background-color: $light;
+}
+
+.title {
+    writing-mode: sideways-lr;
+    font-size: 5rem;
+}
+
+.universes {
+    font-family: 'roboto';
+}
+
+h2 {
+    color: $primary;
+}
