@@ -12,4 +12,21 @@
 	<header class="d-flex justify-content-center align-items-center">
 		<h1 class="text-primary">Limited Manga</h1>
 	</header>
+	<h1 class="text-primary my-5 text-center">Univers</h1>
+	<section class="container">
+		<div class="row g-4">
+			{% for universe in universes %}
+				<div class="col-2">
+					<div class="card d-flex justify-content-center align-items-center ">
+						<img src="{{ universe.image ?? asset('build/images/logoTorii.png' )}}" class="card-image p-3" alt=" ...">
+						<div class="card-body bg-transparent ">
+							<h2 class="card-title text-uppercase  text-center fs-5 ">{{ universe.title }}</h2>
+						</div>
+					</div>
+				</div>
+			{% else %}
+				Aucun univer trouvé.
+			{% endfor %}
+		</div>
+	</section>
 {% endblock %}

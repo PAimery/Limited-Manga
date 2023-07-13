@@ -34,6 +34,8 @@ Encore
      */
     .addEntry('app', './assets/app.js')
     .addStyleEntry('home', './assets/styles/home.scss')
+    .addStyleEntry('universe', './assets/styles/universe.scss')
+
 
 
 
