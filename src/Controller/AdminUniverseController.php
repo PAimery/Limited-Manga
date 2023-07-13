@@ -18,7 +18,7 @@ class AdminUniverseController extends AbstractController
     public function index(UniverseRepository $universeRepository): Response
     {
         return $this->render('admin_universe/index.html.twig', [
-            'universes' => $universeRepository->findAll(),
+            'universes' => $universeRepository->findBy([], ['Title' => 'ASC']),
         ]);
     }
 
