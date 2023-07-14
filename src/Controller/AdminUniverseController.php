@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/admin/universe', name: 'admin_universe_')]
+#[Route('/admin/univers', name: 'admin_universe_')]
 class AdminUniverseController extends AbstractController
 {
     #[Route('/', name: 'index', methods: ['GET'])]
@@ -22,7 +22,7 @@ class AdminUniverseController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
+    #[Route('/ajouter', name: 'new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $universe = new Universe();
@@ -50,7 +50,7 @@ class AdminUniverseController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/éditer', name: 'edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Universe $universe, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(UniverseType::class, $universe);
