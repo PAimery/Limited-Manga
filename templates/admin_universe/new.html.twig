@@ -1,11 +1,20 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin_base.html.twig' %}
 
-{% block title %}New Universe{% endblock %}
+{% block title %}New Universe
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('admin_universe') }}
+{% endblock %}
 
 {% block body %}
-    <h1>Create new Universe</h1>
-
-    {{ include('admin_universe/_form.html.twig') }}
-
-    <a href="{{ path('app_admin_universe_index') }}">back to list</a>
-{% endblock %}
+	<main class="container p-5 my-5">
+		<div class="d-flex justify-content-between">
+			<h1 class="fs-2">Créer un univers</h1>
+			<a class="btn btn-primary fs-6 text-light pt-2 px-3 text-center" href="{{ path('admin_universe_index') }}">Revenir
+				{% include 'icons/back.svg' %}</a>
+		</a>
+	</div>
+	{{ include('admin_universe/_form.html.twig') }}
+</main>{% endblock %}
