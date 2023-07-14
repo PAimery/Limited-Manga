@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UniverseRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: UniverseRepository::class)]
@@ -14,6 +15,8 @@ class Universe
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Length(max: 255)]
     private ?string $Title = null;
 
     #[ORM\Column(length: 255, nullable: true)]
