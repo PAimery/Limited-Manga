@@ -13,10 +13,13 @@
 				</a>
 				<ul class="bg-primary rounded-1 p-0 m-0 dropdown-menu">
 					<li>
-						<a class="bnSuper dropdown-item text-decoration-none fs-6 text-dark text-center" href="{{ path('app_login') }}">Connexion</a>
-					</li>
-					<li>
-						<a class="bnSuper dropdown-item text-decoration-none fs-6 text-dark text-center" href="">S'inscrire</a>
+						{% if app.user %}
+							<a class="bnSuper dropdown-item text-decoration-none fs-6 text-dark text-center" href="{{ path('app_logout') }}">Déconnexion</a>
+						{% else %}
+							<a class="bnSuper dropdown-item text-decoration-none fs-6 text-dark text-center" href="{{ path('app_login') }}">Connexion</a>
+
+							<a class="bnSuper dropdown-item text-decoration-none fs-6 text-dark text-center" href="">S'inscrire</a>
+						{% endif %}
 					</li>
 				</ul>
 			</li>

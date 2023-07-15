@@ -12,10 +12,6 @@ body {
     font-family: 'roboto';
 }
 
-h2 {
-    color: $primary;
-}
-
 .btn {
     font-family: 'BNSuper';
     box-shadow: 1px 1px 4px black;
@@ -35,9 +31,4 @@ h2 {
 .img {
     height: 150px;
     border-block-end: 6px solid $dark;
-}
-
-.bg-custom {
-    background-color: #ffffff;
-    /* Couleur rouge vif */
 }
