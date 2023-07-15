@@ -15,9 +15,19 @@
 		{% endblock %}
 	</head>
 	<body>
-		{% block navbar %}
-			{% include 'components/_navbar.html.twig'%}
-		{% endblock %}
-		{% block body %}{% endblock %}
-	</body>
-</html>
+		<main class="">
+			<div class="col-2 fixed-top">
+				{% block navbar %}
+					{% include 'components/_navbar_admin.html.twig'%}
+				{% endblock %}
+			</div>
+			<div class="row ">
+				<div class="col-2"></div>
+
+				<div class="col-9"> {% block body %}{% endblock %}
+					</div>
+				</div>
+			</main>
+		</body>
+		{% block footer %}{% endblock %}
+	</html>
