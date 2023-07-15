@@ -1,0 +1,34 @@
+@import "variables";
+
+body {
+    background-image: url('../images/effect.png');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.roboto {
+    font-family: 'roboto';
+}
+
+.btn {
+    font-family: 'BNSuper';
+    box-shadow: 1px 1px 4px $dark;
+    height: 40px;
+}
+
+.form-label {
+    margin-top: 2rem;
+}
+
+
+.form-control {
+    border-radius: 0px;
+    width: 400px;
+}
+
+.img {
+    height: 150px;
+    border-block-end: 6px solid $dark;
+}

@@ -36,9 +36,7 @@ Encore
     .addStyleEntry('home', './assets/styles/home.scss')
     .addStyleEntry('universe', './assets/styles/universe.scss')
     .addStyleEntry('admin_universe', './assets/styles/admin_universe.scss')
-
-
-
+    .addStyleEntry('form', './assets/styles/_form.scss')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
