@@ -8,34 +8,40 @@
 		</a>
 		<ul class="navbar-nav order-md-2 mt-2 ">
 			<li class="dropdown ">
-				<a class="nav-link text-black dropdown-toggle text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				<a class="nav-link bnSuper text-black dropdown-toggle text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					{% if app.user %}
+
+						{{ app.user.pseudonym }}
+					{% endif %}
+
 					{% include 'icons/profil.svg' %}
+
 				</a>
 				<ul class="bg-primary rounded-1 p-0 m-0 dropdown-menu">
 					<li>
 						{% if app.user %}
-							<a class="bnSuper dropdown-item text-decoration-none fs-6 text-dark text-center" href="{{ path('app_logout') }}">Déconnexion</a>
+							<a class="bnSuper dropdown-item text-decoration-none fs-6 text-black text-center" href="{{ path('app_logout') }}">Déconnexion</a>
 						{% else %}
-							<a class="bnSuper dropdown-item text-decoration-none fs-6 text-dark text-center" href="{{ path('app_login') }}">Connexion</a>
+							<a class="bnSuper dropdown-item text-decoration-none fs-6 text-black text-center" href="{{ path('app_login') }}">Connexion</a>
 
-							<a class="bnSuper dropdown-item text-decoration-none fs-6 text-dark text-center" href="">S'inscrire</a>
+							<a class="bnSuper dropdown-item text-decoration-none fs-6 text-black text-center" href="">S'inscrire</a>
 						{% endif %}
 					</li>
 				</ul>
 			</li>
+		</li>
+	</ul>
+	<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+		<ul class="navbar-nav mt-2">
+			<li class="nav-item">
+				<a class="bnSuper nav-link mx-3 fs-6 text-black" href="{{ path('universe_index') }}">actualités</a>
+			</li>
+			<li class="nav-item">
+				<a class="bnSuper nav-link mx-3 fs-6 text-black" href="{{ path('universe_index') }}">Univers</a>
+			</li>
+			<li class="nav-item">
+				<a class="bnSuper nav-link mx-3 fs-6 text-black" href="#">Twitter</a>
+			</li>
 		</ul>
-		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-			<ul class="navbar-nav mt-2">
-				<li class="nav-item">
-					<a class="bnSuper nav-link mx-3 fs-6 text-black" href="{{ path('universe_index') }}">actualités</a>
-				</li>
-				<li class="nav-item">
-					<a class="bnSuper nav-link mx-3 fs-6 text-black" href="{{ path('universe_index') }}">Univers</a>
-				</li>
-				<li class="nav-item">
-					<a class="bnSuper nav-link mx-3 fs-6 text-black" href="#">Twitter</a>
-				</li>
-			</ul>
-		</div>
 	</div>
-</nav>
+</div></nav>
