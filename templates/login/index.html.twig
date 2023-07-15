@@ -35,12 +35,13 @@
 								</div>
 								<div class="mb-5">
 									<label for="password" class="form-label">Mots de passe</label>
-									<div class="input-group">
+									<div class="input-group mb-2">
 										<span class="col-2 input-group-text rounded-0 text-light bg-dark border border-dark">
 											{% include 'icons/password.svg' %}
 										</span>
 										<input type="password" class="border border-5 border-dark roboto form-control form-control-lg text-dark" id="password" name="_password">
 									</div>
+									<a href="{{ path('app_forgot_password_request') }}" class="roboto text-dark text-decoration-none fs-6 fw-bolder">Mots de passe oublié ?</a>
 								</div>
 								<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 								<div class="d-flex flex-column align-items-center my-2">
@@ -48,7 +49,7 @@
 								</div>
 								<div class="d-flex flex-column align-items-center">
 									<p class="m-2 roboto fs-6 fw-bolder">Pas de compte ?
-										<a href="#" class="h2 text-dark text-decoration-none fs-6">Sign Up</a>
+										<a href="{{ path('app_register') }}" class="h2 text-dark text-decoration-none fs-6">Sign Up</a>
 									</p>
 								</div>
 							</form>
