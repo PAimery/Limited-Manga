@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Universe
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('universe') }}
+{% endblock %}
+
+{% block body %}
+	<main class="container p-5 my-2">
+		<div class="d-flex justify-content-between p-5">
+			<h1 class="fs-2">TOUS LES COLLECTORS DE
+				{{ universe.title }}</h1>
+			<a class="btnBack btn-primary fs-6 text-light pt-2 px-3 text-center" href="{{ path('universe_index') }}">Revenir</a>
+		</div>
+		<section class="container px-5">
+			<div class="row g-4">
+				{% for collector in universe.collectors %}
+					{# xs sm md lg xl xxl#}
+					<div class="col col-lg-6 col-xl-4">
+						<a role="button" class="" href="{{ path("collector_show", { id: collector.id }) }}">
+
+							<div class="card shadow-0 postion-relative rounded-1 bg-transparent border border-0">
+								<div class="position-absolute top-0 end-0 text-light bg-dark py-2 px-3 BNSuper fs-5 rounded-1">{{ collector.price }}
+									€
+								</div>
+								<div class="d-flex justify-content-center">
+									<img src="{{ collector.image ?? asset('build/images/collector.jpeg') }}" class="card-image w-50" alt=" ...">
+								</div>
+								<div class="mx-5 my-3">
+									<h3 class="BNSuper fs-4 text-dark m-0 text-decoration-none">{{ collector.title }}</h3>
+									<h3 class="roboto fs-5 fw-bold text-dark fst-italic p-0 text-decoration-none">{{ collector.type }}
+										<span class="fs-5 fw-bolder">{{ collector.number }}</span>
+									</h3>
+								</div>
+							</div>
+						</a>
+					</div>
+				{% else %}
+					<h3 class="roboto fw-bolder fs-5 m-5">Aucun collector trouvé.</h3>
+				{% endfor %}
+			</div>
+		</section>
+	</main>
+{% endblock %}

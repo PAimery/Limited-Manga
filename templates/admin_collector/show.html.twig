@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Collector
+{% endblock %}
+
+{% block body %}
+	<main class="container p-5 my-5">
+		<div class="d-flex justify-content-between">
+			<h1 class="fs-2">ACHETER</h1>
+			<a class="btn btn-primary fs-6 text-light pt-2 px-3 text-center" href="{{ path('universe_index') }}">Revenir</a>
+		</div>
+		<section class="container">
+			<div
+				class="row g-4">
+				{# xs sm md lg xl xxl#}
+				<div class="col">
+
+					<div class="card p-5 d-flex justify-content-center align-items-center rounded-3">
+						<h3 class="roboto fs-5 fw-bolder">{{ collector.price }}</h3>
+
+						<h3 class="roboto fs-5 fw-bolder">{{ collector.title }}</h3>
+						<h3 class="roboto fs-5 fw-bolder">{{ collector.type }}</h3>
+						<h3 class="roboto fs-5 fw-bolder">{{ collector.number }}</h3>
+						<h3 class="roboto fs-5 fw-bolder">{{ collector.description }}</h3>
+						<h3 class="roboto fs-5 fw-bolder">{{ collector.accessory }}</h3>
+						<h3 class="roboto fs-5 fw-bolder">{{ collector.linkAmazon }}</h3>
+						<h3 class="roboto fs-5 fw-bolder">{{ collector.linkFnac }}</h3>
+					</div>
+				</div>
+
+			</div>
+		</section>
+	</main>
+{% endblock %}

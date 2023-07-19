@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Collector index{% endblock %}
+
+{% block body %}
+    <h1>Collector index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Type</th>
+                <th>Number</th>
+                <th>Description</th>
+                <th>Accessory</th>
+                <th>Price</th>
+                <th>Link_amazon</th>
+                <th>Link_fnac</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for collector in collectors %}
+            <tr>
+                <td>{{ collector.id }}</td>
+                <td>{{ collector.title }}</td>
+                <td>{{ collector.type }}</td>
+                <td>{{ collector.number }}</td>
+                <td>{{ collector.description }}</td>
+                <td>{{ collector.accessory }}</td>
+                <td>{{ collector.price }}</td>
+                <td>{{ collector.linkAmazon }}</td>
+                <td>{{ collector.linkFnac }}</td>
+                <td>
+                    <a href="{{ path('app_collector_show', {'id': collector.id}) }}">show</a>
+                    <a href="{{ path('app_collector_edit', {'id': collector.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_collector_new') }}">Create new</a>
+{% endblock %}

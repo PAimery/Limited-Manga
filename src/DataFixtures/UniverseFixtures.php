@@ -43,7 +43,7 @@ class UniverseFixtures extends Fixture
             $universe = new Universe();
             $universe->setTitle($universeTitle);
             $manager->persist($universe);
-            #$this->addReference('universe_' . $key, $universe);#}
+            $this->addReference('universe_' . $key, $universe); #}
         }
         $manager->flush();
     }
