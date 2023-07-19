@@ -17,7 +17,7 @@ class AdminCollectorController extends AbstractController
     #[Route('/', name: 'index', methods: ['GET'])]
     public function index(CollectorRepository $collectorRepository): Response
     {
-        return $this->render('collector/index.html.twig', [
+        return $this->render('admin_collector/index.html.twig', [
             'collectors' => $collectorRepository->findAll(),
         ]);
     }
@@ -36,7 +36,7 @@ class AdminCollectorController extends AbstractController
             return $this->redirectToRoute('admin_collector_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('collector/new.html.twig', [
+        return $this->render('admin_collector/new.html.twig', [
             'collector' => $collector,
             'form' => $form,
         ]);
@@ -59,7 +59,7 @@ class AdminCollectorController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_collector_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_collector_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('admin_collector/edit.html.twig', [

@@ -23,13 +23,30 @@ h2 {
     height: 40px;
 }
 
+.btnBack {
+    font-family: 'BNSuper';
+    box-shadow: 1px 1px 4px black;
+    height: 40px;
+    background-color: $primary;
+    text-decoration: none;
+    border-radius: 6%;
+}
+
 .form-label {
     margin-top: 2rem;
 }
-
 
 .form-control {
     border-block-end: solid 6px $dark;
     border-radius: 0px;
     width: 800px;
+}
+
+card-image {
+    height: 5%;
+}
+
+input,
+textarea {
+    font-family: $font-family-text;
 }

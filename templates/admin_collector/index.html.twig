@@ -1,49 +1,56 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin_base.html.twig' %}
 
-{% block title %}Collector index{% endblock %}
+{% block title %}Collector index
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('admin_universe') }}
+{% endblock %}
 
 {% block body %}
-    <h1>Collector index</h1>
+	<main class="container d-flex my-5">
+		<div class="col-1 d-flex flex-column align-items-end">
+			<h1 class="title text-dark p-0 m-0">Collectors</h1>
+			<a class="bg-dark fs-1 fw-bolder px-4 m-3 rounded-2 text-center text-light text-decoration-none" href="{{ path('admin_collector_new') }}">
+				+
+			</a>
+		</div>
+		<div class="col">
+			<table class="table table-striped border border-dark ">
+				<thead>
+					<tr>
+						<th class="h2">Title</th>
+						<th class="h2">Type</th>
+						<th class="h2">N°</th>
+						<th class="h2">Image</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for collector in collectors %}
+						<tr>
+							<td class="universes text-uppercase fw-bolder px-4 pt-3">{{ collector.title }}</td>
+							<td>{{ collector.type }}</td>
+							<td>{{ collector.number }}</td>
+							<td>
+								<img src="{{ collector.image ?? asset('build/images/Universes/onepiece.png') }}" class="card-image w-75 " alt=" ...">
+							</td>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Type</th>
-                <th>Number</th>
-                <th>Description</th>
-                <th>Accessory</th>
-                <th>Price</th>
-                <th>Link_amazon</th>
-                <th>Link_fnac</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for collector in collectors %}
-            <tr>
-                <td>{{ collector.id }}</td>
-                <td>{{ collector.title }}</td>
-                <td>{{ collector.type }}</td>
-                <td>{{ collector.number }}</td>
-                <td>{{ collector.description }}</td>
-                <td>{{ collector.accessory }}</td>
-                <td>{{ collector.price }}</td>
-                <td>{{ collector.linkAmazon }}</td>
-                <td>{{ collector.linkFnac }}</td>
-                <td>
-                    <a href="{{ path('app_collector_show', {'id': collector.id}) }}">show</a>
-                    <a href="{{ path('app_collector_edit', {'id': collector.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="10">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+							<td class="bg-dark pt-3">
+								<a class="text-light mx-3" href="{{ path('admin_collector_show', {'id': collector.id}) }}">
+									{% include 'icons/view.svg' %}</a>
+								<a class="text-light p-3 rounded-2" href="{{ path('admin_collector_edit', {'id': collector.id}) }}">
+									{% include 'icons/edit.svg' %}</a>
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="10">no records found</td>
+						</tr>
+					{% endfor %}
 
-    <a href="{{ path('app_collector_new') }}">Create new</a>
+				</tbody>
+			</table>
+		</div>
+	</main>
 {% endblock %}
