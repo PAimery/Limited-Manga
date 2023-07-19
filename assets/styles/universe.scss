@@ -1,3 +1,5 @@
+@import "variables";
+
 header {
     background-image: url('../images/backgroundHomeHeader.png');
     background-size: cover;
@@ -6,6 +8,37 @@ header {
     height: 100%;
 }
 
-.card {
+.cardUniverse {
     box-shadow: 1px 1px 5px black;
+}
+
+.BNSuper {
+    font-family: 'BNSuper';
+}
+
+.roboto {
+    font-family: 'roboto';
+}
+
+.block-card {
+    height: 200px;
+}
+
+.btnBack {
+    font-family: 'BNSuper';
+    box-shadow: 1px 1px 4px black;
+    height: 40px;
+    background-color: $primary;
+    text-decoration: none;
+    border-radius: 6%;
+}
+
+.btnLink {
+    font-family: 'BNSuper';
+    box-shadow: 1px 1px 4px black;
+    background-color: $primary;
+    color: $light;
+    text-decoration: none;
+    border-radius: 6%;
+    width: 16rem;
 }

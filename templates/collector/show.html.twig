@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Collector
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('universe') }}
+{% endblock %}
+
+{% block body %}
+	<main class="container p-5 my-2">
+		<div class="d-flex justify-content-between p-3">
+			<h1 class="fs-2">ACHETER</h1>
+			<a class="btnBack fs-6 text-light pt-2 px-3 text-center" href="{{ path("collector_show", { id: collector.id }) }}">Revenir</a>
+		</div>
+		<section class="container">
+			<div class="card p-5 rounded-0 border border-5 border-dark">
+				<div class="d-flex flex-row justify-content-center align-items-center">
+					<div class=" col-4">
+						<img src="{{ collector.image ?? asset('build/images/collector.jpeg') }}" class="card-image w-75" alt=" ...">
+					</div>
+					<div class="col-7">
+						<h3 class="BNSuper fs-3">{{ collector.title }}</h3>
+						<h3 class="roboto fs-5 fw-bold text-dark fst-italic p-0">{{ collector.type }}</h3>
+						<h3 class="BNSuper fs-4 mx-3">{{ collector.number }}</h3>
+						<div class="d-flex flex-column justify-content-center mx-4">
+							<a type="button" href="{{ collector.linkAmazon }}" class="btnLink text-center px-3 py-2 my-2 fs-5 text-decoration-none rounded-1">{{ collector.price }}
+								€ AMAZON
+								{% include 'icons/shop.svg' %}</a>
+							<a type="button" href="{{ collector.linkFnac }}" class="btnLink text-center px-3 py-2 my-2 fs-5 text-decoration-none rounded-1">{{ collector.price }}
+								€ FNAC
+								{% include 'icons/shop.svg' %}</a>
+						</div>
+						<h3 class="roboto fs-6 fw-bold my-5">{{ collector.description }}</h3>
+						<div class="mx-3">
+
+							<h3 class="roboto fs-5 fw-bolder">Contenu :</h3>
+							<h3 class="roboto fs-6 fw-bolder">{{ collector.accessory }}</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+{% endblock %}
