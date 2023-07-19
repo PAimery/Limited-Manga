@@ -1,6 +1,6 @@
 <div class="">
 	<div class="row">
-		<div class="col px-5 bg-primary">
+		<div class="col px-5 bg-dark">
 			<div class="d-flex flex-column align-items-center p-5 vh-100">
 				<img class="img-fluid" src=" {{ asset('build/images/logoTorii.png') }} " alt="Logo Limited Manga">
 				<hr class="py-5">
@@ -10,7 +10,10 @@
 						<a href="#" class="bnSuper text-light fs-5 nav-link align-middle py-3 ">Accueil</a>
 					</li>
 					<li class="nav-item">
-						<a href="{{ path('admin_universe_index') }}" class=" bnsuper text-light fs-5 nav-link align-middle py-3">univers</a>
+						<a href="{{ path('admin_universe_index') }}" class="bnsuper text-light fs-5 nav-link align-middle py-3">univers</a>
+					</li>
+					<li class="nav-item">
+						<a href="{{ path('admin_collector_index') }}" class="bnsuper text-light fs-5 nav-link align-middle py-3">Collectors</a>
 					</li>
 				</ul>
 				<hr class="py-5">

@@ -1,11 +1,19 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin_base.html.twig' %}
 
-{% block title %}New Collector{% endblock %}
+{% block title %}New Collector
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('admin_universe') }}
+{% endblock %}
 
 {% block body %}
-    <h1>Create new Collector</h1>
-
-    {{ include('collector/_form.html.twig') }}
-
-    <a href="{{ path('app_collector_index') }}">back to list</a>
+	<main class="container p-5 my-5">
+		<div class="d-flex justify-content-between">
+			<h1 class="fs-2">Ajouter un collector</h1>
+			<a class="btnBack fs-6 text-light pt-2 px-3 text-center" href="{{ path('admin_collector_index') }}">Revenir</a>
+		</div>
+		{{ include('admin_collector/_form.html.twig') }}
+	</main>
 {% endblock %}
