@@ -30,7 +30,7 @@
 						<tr>
 							<td class="universes text-uppercase fw-bolder px-4 pt-3">{{ universe.title }}</td>
 							<td>
-								<img src="{{ universe.image ?? asset('build/images/Universes/onepiece.png') }}" class="card-image w-50" alt=" ...">
+								<img src="{{ universe.image ? asset('/uploads/universe/' ~ universe.image) : asset('build/images/logoTorii.png') }}" class="card-image w-50" alt=" ...">
 							</td>
 							<td class="bg-dark pt-3">
 								<a class="text-light mx-3" href="{{ path('admin_universe_show', {'id': universe.id}) }}">

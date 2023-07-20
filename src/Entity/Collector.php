@@ -3,10 +3,16 @@
 namespace App\Entity;
 
 use App\Repository\CollectorRepository;
+use DateTime;
+use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: CollectorRepository::class)]
+#[Vich\Uploadable]
 class Collector
 {
     #[ORM\Id]
@@ -44,6 +50,16 @@ class Collector
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
+
+    #[Vich\UploadableField(mapping: 'image_collector', fileNameProperty: 'image')]
+    #[Assert\File(
+        maxSize: '1M',
+        mimeTypes: ['image/jpeg', 'image/png', 'image/webp'],
+    )]
+    private ?File $imageCollector = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?DateTimeInterface $updatedAt = null;
 
     public function getId(): ?int
     {
@@ -168,5 +184,19 @@ class Collector
         $this->image = $image;
 
         return $this;
+    }
+
+    public function setImageCollector(File $image = null): Collector
+    {
+        $this->imageCollector = $image;
+        if ($image) {
+            $this->updatedAt = new DateTime('now');
+        }
+        return $this;
+    }
+
+    public function getImageCollector(): ?File
+    {
+        return $this->imageCollector;
     }
 }

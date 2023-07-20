@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class UniverseType extends AbstractType
 {
@@ -19,7 +20,12 @@ class UniverseType extends AbstractType
                     'placeholder' => 'Titre de l\'univers',
                 ]
             ])
-            ->add('image');
+            ->add('imageUniverse', VichFileType::class, [
+                'required'      => false,
+                'allow_delete'  => true,
+                'download_uri' => true,
+                'label' => 'Image',
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -18,7 +18,7 @@
 			<div class="card p-5 rounded-0 border border-5 border-dark">
 				<div class="d-flex flex-row justify-content-center align-items-center">
 					<div class=" col-4">
-						<img src="{{ collector.image ?? asset('build/images/collector.jpeg') }}" class="card-image w-75" alt=" ...">
+						<img src="{{ collector.image ? asset('/uploads/collector/' ~ collector.image) : asset('build/images/collector.png') }}" class="card-image w-75 " alt=" ...">
 					</div>
 					<div class="col-7">
 						<h3 class="BNSuper fs-3">{{ collector.title }}</h3>
