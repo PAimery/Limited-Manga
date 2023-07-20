@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\CollectorRepository;
 use DateTime;
 use DateTimeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -60,6 +62,14 @@ class Collector
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?DateTimeInterface $updatedAt = null;
+
+    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'favorites')]
+    private Collection $favorites;
+
+    public function __construct()
+    {
+        $this->favorites = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -198,5 +208,29 @@ class Collector
     public function getImageCollector(): ?File
     {
         return $this->imageCollector;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getFavorites(): Collection
+    {
+        return $this->favorites;
+    }
+
+    public function addFavorite(User $favorite): static
+    {
+        if (!$this->favorites->contains($favorite)) {
+            $this->favorites->add($favorite);
+        }
+
+        return $this;
+    }
+
+    public function removeFavorite(User $favorite): static
+    {
+        $this->favorites->removeElement($favorite);
+
+        return $this;
     }
 }
