@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class CollectorType extends AbstractType
 {
@@ -36,7 +37,7 @@ class CollectorType extends AbstractType
                 ]
             ])
             ->add('description', TextareaType::class, [
-                'label' => 'type',
+                'label' => 'Description',
                 'attr' => [
                     'placeholder' => 'Description du collector',
                 ]
@@ -71,6 +72,12 @@ class CollectorType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Sélectionne l\'univers',
                 ]
+            ])
+            ->add('imageCollector', VichFileType::class, [
+                'required'      => false,
+                'allow_delete'  => true,
+                'download_uri' => true,
+                'label' => 'Image',
             ]);
     }
 

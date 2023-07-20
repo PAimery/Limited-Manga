@@ -33,7 +33,7 @@
 							<td>{{ collector.type }}</td>
 							<td>{{ collector.number }}</td>
 							<td>
-								<img src="{{ collector.image ?? asset('build/images/Universes/onepiece.png') }}" class="card-image w-75 " alt=" ...">
+								<img src="{{ collector.image ? asset('/uploads/collector/' ~ collector.image) : asset('build/images/logoTorii.png') }}" class="card-image w-75 " alt=" ...">
 							</td>
 
 							<td class="bg-dark pt-3">
