@@ -3,12 +3,20 @@
 {% block title %}Edit Collector
 {% endblock %}
 
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('admin_universe') }}
+{% endblock %}
+
 {% block body %}
-	<h1>Edit Collector</h1>
+	<main class="container p-5 my-5">
+		<div class="d-flex justify-content-between">
+			<h1 class="fs-2">Editer un collector</h1>
+			<a class="btnBack fs-6 text-light pt-2 px-3 text-center" href="{{ path('admin_collector_index') }}">Revenir</a>
+		</div>
+		{{ include('admin_collector/_form.html.twig', {'button_label': 'Modifier'}) }}
+		{{ include('admin_collector/_delete_form.html.twig') }}
 
-	{{ include('collector/_form.html.twig', {'button_label': 'Update'}) }}
+	</main>
 
-	<a href="{{ path('app_collector_index') }}">back to list</a>
-
-	{{ include('collector/_delete_form.html.twig') }}
 {% endblock %}

@@ -1,4 +1,4 @@
 <form method="post" action="{{ path('admin_universe_delete', {'id': universe.id}) }}" onsubmit="return confirm('Veux-tu vraiment anéantir cet univers ?');">
 	<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ universe.id) }}">
-	<button class="btn btn-primary fs-6 text-light pt-2 px-3 text-center">Supprimer</button>
+	<button class="btn btn-primary fs-5 text-light px-3 text-center mx-3">Supprimer</button>
 </form>
