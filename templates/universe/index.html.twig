@@ -11,20 +11,21 @@
 {% block body %}
 	<h1 class="text-primary my-5 text-center">Univers</h1>
 	<section class="container">
-		<div class="row row-cols-5 g-3">
+		<div class="row row-cols-sm-2 row-cols-md-3 row-cols-xl-4 row-cols-xxl-5">
 			{% for universe in universes %}
 				{# xs sm md lg xl xxl#}
 				<div class="col">
-					<a role="button" class="" href="{{ path("universe_show", { id: universe.id }) }}">
-
-						<div class="cardUniverse px-1 py-5 d-flex justify-content-center align-items-center rounded-1 bg-">
-							<img src="{{ universe.image ? asset('/uploads/universe/' ~ universe.image) : asset('build/images/logoTorii.png') }}" class="card-image w-50" alt=" ...">
+					<a role="button" class=" text-decoration-none d-flex justify-content-center" href="{{ path("universe_show", { id: universe.id }) }}">
+						<div class="card-size">
+							<div class="custom-size rounded-1">
+								<img src="{{ universe.image ? asset('/uploads/universe/' ~ universe.image) : asset('build/images/logoTorii.png') }}" class="object-fit-contain p-4 w-100 h-100" alt=" ...">
+							</div>
+							<div class="d-flex justify-content-center">
+								<h2 class="BNSuper lh-sm text-center text-dark p-2 fs-5	">{{ universe.title }}</h2>
+							</div>
 						</div>
-						<div class="d-flex justify-content-center">
-							<a role="button" class="btn BNSuper text-uppercase text-center text-dark p-2 fs-5">{{ universe.title }}</a>
-						</div>
-					</div>
-				</a>
+					</a>
+				</div>
 			{% else %}
 				Aucun univer trouvé.
 			{% endfor %}

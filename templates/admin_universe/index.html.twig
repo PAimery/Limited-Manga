@@ -20,7 +20,7 @@
 			<table class="table table-striped border border-dark ">
 				<thead>
 					<tr>
-						<th class="col-5 h2">Title</th>
+						<th class="px-4 col-5 h2">Title</th>
 						<th class="h2">Image</th>
 						<th></th>
 					</tr>
@@ -28,14 +28,16 @@
 				<tbody>
 					{% for universe in universes %}
 						<tr>
-							<td class="universes text-uppercase fw-bolder px-4 pt-3">{{ universe.title }}</td>
-							<td>
-								<img src="{{ universe.image ? asset('/uploads/universe/' ~ universe.image)|imagine_filter('square') : asset('build/images/logoTorii.png') }}" width="10%" class="card-image" alt=" ...">
+							<td class="align-middle universes text-uppercase fw-bolder px-4">{{ universe.title }}</td>
+							<td class="align-middle">
+								<div class="custom-size">
+									<img src="{{ universe.image ? asset('/uploads/universe/' ~ universe.image) : asset('build/images/logoTorii.png') }}" class="object-fit-cover h-100" alt=" ...">
+								</div>
 							</td>
-							<td class="bg-dark pt-3 d-flex justify-content-center align-items-center">
+							<td class="bg-dark d-flex justify-content-evenly p-3">
 								<a class="text-light mx-3" href="{{ path('admin_universe_show', {'id': universe.id}) }}">
 									{% include 'icons/view.svg' %}</a>
-								<a class="text-light p-3 rounded-2" href="{{ path('admin_universe_edit', {'id': universe.id}) }}">
+								<a class="text-light rounded-2" href="{{ path('admin_universe_edit', {'id': universe.id}) }}">
 									{% include 'icons/edit.svg' %}</a>
 							</td>
 						</tr>
