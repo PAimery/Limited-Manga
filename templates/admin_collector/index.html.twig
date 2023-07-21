@@ -20,7 +20,7 @@
 			<table class="table table-striped border border-dark ">
 				<thead>
 					<tr>
-						<th class="col-3 h2">Title</th>
+						<th class="col-3 h2 px-3">Title</th>
 						<th class="col-2 h2">Type</th>
 						<th class="col-1 h2">N°</th>
 						<th class="col-2 h2">Univers</th>
@@ -30,13 +30,15 @@
 				<tbody>
 					{% for collector in collectors %}
 						<tr>
-							<td class="universes text-uppercase fw-bolder px-4 pt-3">{{ collector.title }}</td>
-							<td class="fw-bolder fs-6">{{ collector.type }}</td>
-							<td class="fw-bolder fs-5">{{ collector.number }}</td>
-							<td class="fw-bolder fs-6">{{ collector.universe.title }}</td>
+							<td class="px-3 align-middle universes text-uppercase fw-bolder">{{ collector.title }}</td>
+							<td class="align-middle fw-bolder fs-6">{{ collector.type }}</td>
+							<td class="align-middle fw-bolder fs-5">{{ collector.number }}</td>
+							<td class="align-middle fw-bolder fs-6">{{ collector.universe.title }}</td>
 
-							<td>
-								<img src="{{ collector.image ? asset('/uploads/collector/' ~ collector.image) : asset('build/images/logoTorii.png') }}" width="10%" class="image" alt=" ...">
+							<td class="align-middle">
+								<div class="custom-size">
+									<img src="{{ collector.image ? asset('/uploads/collector/' ~ collector.image) : asset('build/images/logoTorii.png') }}" class="object-fit-cover w-100 h-100" alt=" ...">
+								</div>
 							</td>
 
 							<td class="bg-dark pt-3 d-flex justify-content-center align-items-center">

@@ -8,9 +8,6 @@ header {
     height: 100%;
 }
 
-.cardUniverse {
-    box-shadow: 1px 1px 5px black;
-}
 
 .BNSuper {
     font-family: 'BNSuper';
@@ -41,4 +38,18 @@ header {
     text-decoration: none;
     border-radius: 6%;
     width: 18rem;
+}
+
+.banniere {
+    transform: rotate(-3deg);
+}
+
+.custom-size {
+    box-shadow: 1px 1px 3px black;
+    height: 13rem;
+    width: 16rem;
+}
+
+.card-size {
+    height: 19rem;
 }
